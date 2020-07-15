@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SCR Reverse</title>
+	<link rel="stylesheet" href="css/style.css">
+	  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="graph.ob.js"></script>
+	<style>
+		#wrapper {
+			width:100%;
+		}
+		table{
+			border-collapse: collapse;
+		}
+		div
+		{
+			box-sizing: border-box;
+			resize: both;
+		}
+		.column10 {
+			float: left;
+			width: 10%;
+			padding: 10px;
+			height: 300px;
+			border-style: solid;
+			border-right: none;
+			color:#222d32;
+		}
+		.column15a {
+			float: left;
+			width: 15%;
+			padding: 10px;
+			height: 300px;
+			border-style: solid;
+			border-right: none;
+			color:#222d32;
+		}
+		.column15b {
+			float: left;
+			width: 15%;
+			padding: 10px;
+			height: 300px;
+			border-style: solid;
+			border-right: none;
+			border-top:none;
+			color:#222d32;
+		}
+		.column25 {
+			float: left;
+			width: 25%;
+			padding: 10px;
+			height: 300px;
+			border-style: solid;
+			border-right: none;
+			border-top: none;
+			color:#222d32; 
+		}
+		.column30 {
+			float: left;
+			width: 30%;
+			padding: 10px;
+			height: 300px;
+			border-style: solid;
+			color:#222d32;
+		}
+		.column35 {
+			float: left;
+			width: 35%;
+			padding: 10px;
+			height: 300px;
+			border-style: solid;
+			border-right: none;
+			color:#222d32;
+		}
+		.column60 {
+			float: left;
+			width: 60%;
+			padding: 10px;
+			height: 300px;
+			border-style: solid;
+			border-top:none;
+			color:#222d32; 
+		}
+		.slidecontainer {
+			width: 100%;
+		}
+
+		.slider {
+			-webkit-appearance: none;
+			width: 67%;
+			height: 7px;
+			border-radius: 5px;
+			background: grey;
+			outline: none;
+			opacity: 1;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+
+		.slider:hover {
+			opacity: 1;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 90px;
+			height: 15px;
+			opacity: 1;
+			border-radius: 10%;
+			background: black;
+			cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 20px;
+			height: 25px;
+			border-radius: 50%;
+			background: black;
+			cursor: pointer;
+		}
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.rotorOuter
+		{
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+		.rotorInner
+		{
+			position: absolute;
+			top: 60px;
+			left: 60px;
+		}
+		.autoTrasformerouter
+		{
+			position: relative;
+		}
+		.autoTransformerinner
+		{
+			position: absolute;
+			animation: rotations 0s infinite linear;
+
+		}
+		@keyframes rotations {
+			from {
+				transform: rotate(10deg);
+			}
+			to {
+				transform: rotate(30deg);
+			}
+		}
+		img.autoTrasformerouter
+		{
+			width:58%; 
+		}
+		img.autoTransformerinner
+		{
+			transform:rotate(270deg);
+			width:41%; 
+		}
+		.rotate {
+			animation: rotation 0s infinite linear;
+		}
+		@keyframes rotation {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(359deg);
+			}
+		}
+		.tooltip {
+			position: relative;
+			display: inline-block;
+			color: blue;
+		}
+
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 400px;
+			background-color: linen;
+			color: black;
+			text-align: left;
+			left: -20em;  
+			border-radius: 6px;
+			padding: 5px 0;
+
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			top: -5px;
+			right: 105%;
+		}
+
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+		}
+	}
+</style>
+</head>
+<body>
+	<div class="jtk-demo-main" data-demo-id="animation" >
+		<div class="jtk-demo-canvas canvas-wide animation-demo jtk-surface jtk-surface-nopan" id="canvas">
+			<div id="wrapper" style="position:absolute; top:10px;width:1310px;left:20px">
+				<div class="littledot" id="ld1"></br><a href="#" class="cmdLink detach" rel="ld1">1</a>
+				</div>
+				<div class="littledot" id="ld2"></br><a href="#" class="cmdLink detach" rel="ld2">2</a>
+				</div>
+				<div class="littledot" id="ld3"></br><a href="#" class="cmdLink detach" rel="ld3">3</a>
+				</div>
+				<div class="littledot" id="ld4"></br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="cmdLink detach" rel="ld4">4</a>
+				</div>
+				<div class="littledot" id="ld5"></br><a href="#" class="cmdLink detach" rel="ld5">5</a>
+				</div>
+				<div class="littledot" id="ld6"></br><a href="#" class="cmdLink detach" rel="ld6">6</a>
+				</div>
+				<div class="littledot" id="ld7"></br><a href="#" class="cmdLink detach" rel="ld7">7</a>
+				</div>
+				<div class="littledot" id="ld8"></br><a href="#" class="cmdLink detach" rel="ld8">8</a>
+				</div>
+				<div class="littledot" id="ld9"></br><a href="#" class="cmdLink detach" rel="ld9">9</a>
+				</div>
+				<div class="littledot" id="ld10"></br><a href="#" class="cmdLink detach" rel="ld10">10</a>
+				</div>
+				<div class="littledot" id="ld11"></br><a href="#" class="cmdLink detach" rel="ld11">11</a>
+				</div>
+				<div class="littledot" id="ld12"></br><a href="#" class="cmdLink detach" rel="ld12">12</a>
+				</div>
+				<div class="littledot" id="ld13"></br><a href="#" class="cmdLink detach" rel="ld13">13</a>
+				</div>
+
+				<div class="row">
+					<div class="column10"> 
+						<p style="position: absolute;top:-0.7em;"><b><center>MCB</center></b></p>
+
+						<div style="position:absolute;top:1.9em;left:1.5em;">
+							<img id="myimage1" class="mcbSwitch" src="images/push1.png" alt="MCB Switch" width="12%" height="6%">
+	
+						</div>
+						<div style="position:absolute;top:4em;left:1.5em;">
+							<img id="myimage" class="mcbSwitch" src="images/Mcboff.png" alt="MCB Switch" onclick="mcbonoff();" width="80" height="120">
+						</div>
+					</div>
+					<div class="column10"> 
+						<div style="position:absolute;top:2em;left:9em;">
+							<img src="images/diode.png" alt="diode">
+						</div>
+						
+					</div>
+
+					<div class="column35" id="movers-row" > 
+						<img class="voltMeter" src="images/Voltmeter.png" alt="Voltmeter" width="170" height="200" style="position: absolute;left: 32em; top: 1em;">
+						<div class="meter1" style="position: absolute;top: 8em;left: 18.5em;">
+							<div class="rang" style="position: absolute;top: -1em;left: 12em;">
+								<div class="rang-title">
+									<input class="rang-number" id="show" type="text" value="0" disabled="disabled"/>
+								</div>
+								<br>Voltmeter
+							</div>
+							<div style="position: absolute;top:-10.5em;left: 10em;">
+								<svg class="meter">
+									<polygon class="meter-clock" points="129,145 137,90 145,145"></polygon>
+									<circle class="meter-circle" r="10" cx="137" cy="145"></circle>
+								</svg>
+							</div>
+						</div>
+						<img class="amMeter" src="images/Ammeter.png" alt="Ammeter" width="170" height="200" style="position: absolute;left: 19em; top: 1em;">
+						<div class="meter2" style="position: absolute;top: 8em;left: 5.5em;">
+							<div class="rang" style="position: absolute;top: -1em;left: 12em;">
+								<div class="rang-title" >
+									<input class="rang-number" id="show2" type="text" value="0" disabled="disabled"/>
+								</div>
+								<br>Ammeter
+							</div>
+							<div>
+								<svg class="meter" style="position: absolute;top: -10.5em;left: 10em;">
+									<polygon class="meter-clock2" points="129,145 137,90 145,145"></polygon>
+									<circle class="meter-circle" r="10" cx="137" cy="145"></circle>
+								</svg>
+							</div>
+						</div>
+
+
+					</div>
+
+
+					<div class="column15a" >
+						<img id="bulb" class="bulb" src="images/off.png" alt="Bulb in off state" width="175"><div style="text-align:right;">
+<div class="tooltip" style="position: absolute;top:1em;left: 76em;"><u><B>Instruction</B></u>
+    <span class="tooltiptext">
+      <B>Step 1: </B>Set the first knob.<br/>
+      <B>Step 2: </B>Make the proper connection by clicking the node as instructed below. If the wire is misplaced, click the node number to deattach the nodes' wire. <br/>
+      <table border="1">
+        <tr>
+          <td><B>&nbsp;&nbsp;From&nbsp;&nbsp;</B></td>
+          <td>&nbsp;&nbsp;1&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;2&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;3&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;4&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;7&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;9&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td><B>&nbsp;&nbsp;To&nbsp;&nbsp;</B></td>
+          <td>&nbsp;&nbsp;3&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;6&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;8&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;10&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;11&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;4&nbsp;&nbsp;</td>
+         
+        </tr>
+      </table>
+      <B>Step 3: </B>Click "Check" button.
+      <li>if connection is correct, an alert appers. Click ok. Now, go to step 4.</li>
+      <li>if connection is wrong, an alert appers. Click ok. Now, go to step 3.</li>
+      <B>Step 4: </B>Check the connection and either deattach the incorrect wire connection or Click on reset button and start from step 1.<br/>
+      <B>Step 5: </B>Switch on the MCB.<br/>
+      <B>Step 6: </B>Rotate the Knob by the help of slider.<br/>
+      <B>Step 7: </B>Take readings from Voltmeter and Ammeter by clicking add To table button.<br/>
+      <B>Step 8: </B>Change the value of by rotating the knob and keep adding the value on table.<br/>  
+      <B>Step 9: </B> After taking minimum 6 readings, click the "Graph" button.<br/>
+      <B>Step 10: </B> Click "Print" button, to print the full connections with graph and table, if needed.<br />
+      <B>Step 11: </B> Click restart and change the baising option and follow the steps from 2 to 10. 
+    </span>
+  
+</div>
+
+				</div>
+
+					</div>
+					
+					<div style="position:absolute;left:75em;top:16em;">
+	
+	<div style="position:absolute;left:-1em;top:-12em;">
+                <button class="bot" id="check-button" >Check</button>
+                <button class="bot" id="reset" type="reset" onclick=" window.location.href='index.html';">Reset</button>
+                <button class="bot" id="graph" disabled="true"  onclick="drawgraph();">Graph</button>
+                <button class="bot" id="print" onclick="window.print();">Print this page</button>
+                <button class="bot" type="button" disabled="true" onclick="myFunction()" id="addToTable">Add to table</button>
+              </div>
+           
+              
+            </div>
+					<div class="column30" >
+					<table id="myTable" border="2">
+					  <tr>
+					    <td>S.No.</td>
+					    <td>VOLTMETER</td>
+					    <td>AMMETER</td>
+					  </tr>
+					  
+					</table>
+					</div>
+					</div>
+
+				<div class="row">
+					<div class="column25" >
+						<div style="position:absolute; top:20em; left:2em;">
+							<div ><img id="div1" src="images/needle.png" width="200px" height="200px"></div>
+
+							<input type="range" id="range" min="0" max="10" value="0" disabled="true" oninput="rotate(this.value)" onchange="rotate(this.value)" /><br>
+							<!--transform: rotate(<span id="span1">0deg</span>);-->
+						</div>
+					</div>
+
+					<div class="column15b">
+
+						<div style="position:absolute; top:25em; left:23em;">
+						</div>
+					</div>
+						<div class="column60">
+							  <div class="box" id="myDiv" style="width:430px;height:290px;"></div>
+					</div>
+				</div>
+				<div style="position:absolute;left:0.6em;top:17.2em;">
+				
+				</div>
+			</div>
+		</div>
+
+	</div>
+<h1 style="position:absolute; top:20.2em;left: 15em;">REVERSE BLOCKING CHARACTERISTICS OF SCR</h1>
+	<script src="jsplumb.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+body
+{
+    background-color: linen;
+}
+.box{
+    
+    background: none;
+    margin: 0px 10px;
+    transition: 1s;
+
+  }
+.box:hover{
+    transform: scale(1.2);
+    background: none;
+    z-index: 2;
+    box-shadow: 2px 2px 2px #000;
+    
+  }
+  .bot
+{
+  color:white;
+  background-color:#27D447;
+  border:none;
+  width:110px;
+  margin:4px 2px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:10px;
+}
+.container{
+    width: 20%; 
+  }
+.demo 
+{
+    touch-action:none;
+}
+.dropHover 
+{
+    border: 1px solid orange;
+}
+.jtk-connector 
+{
+    z-index: 1;
+}
+.jtk-overlay 
+{
+    z-index: 51;
+}
+.jtk-endpoint 
+{
+    z-index: 50;
+    cursor: move;
+}
+.littledot
+{
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    background-image: url(littledot.png);
+    z-index: 5;
+    position: absolute;
+    border-radius: 31px;
+}
+.littledot-hover-hover 
+{
+    border: 2px solid orange;
+}
+#ld1 
+{
+    top: 12.1em;
+    left: 2.5em;
+}
+#ld2 
+{
+    top: 12.1em;
+    left: 4.5em;
+}
+#ld3 
+{
+    top: 12.1em;
+    left: 10em;
+}
+#ld4 
+{
+    top: 1.8em;
+    left: 10em;
+}
+#ld5 
+{
+    top:10.4em;
+    left: 14.5em;
+}
+#ld6 
+{
+    top: 12.1em;
+    left: 20em;
+}
+#ld7 
+{
+    top: 12.1em;
+    left: 28em;
+}
+#ld8 
+{
+    top: 12.1em;
+    left: 33em;
+}
+#ld9 
+{
+    top: 12.1em;
+    left: 41em;
+}
+#ld10 
+{
+    top: 12.1em;
+    left: 48em;
+}
+#ld11 
+{
+    top: 12.1em;
+    left: 53.55em;
+}
+#ld12
+{
+    top: 22em;
+    left: 24em;
+}
+#ld13
+{
+    top: 22em;
+    left: 28em;
+}
+
+
+
+.meter-clock2{
+width: 20px;
+margin-top:-500px;
+}
+      
+.meter {
+        display: block;
+        width: 283px;
+        height: 155px;
+        margin: 0px auto
+
+      }
+.meter-shape 
+{
+    -webkit-transform: skewX(-2deg) skewY(1deg);
+            transform: skewX(-2deg) skewY(1deg);
+    stroke-width: 18;
+    stroke-dashoffset: 253;
+    stroke: blue;
+    fill: none;
+}
+.meter-clock {
+        -webkit-transform: rotate(297deg);
+                transform: rotate(297deg);
+        -webkit-transform-origin: 137px 146px;
+                transform-origin: 137px 146px;
+        fill: red;
+      }
+.meter-clock2 
+{
+    -webkit-transform: rotate(297deg);
+            transform: rotate(297deg);
+    -webkit-transform-origin: 137 px 146px;
+            transform-origin: 137px 146px;
+    fill: red;
+}
+
+.other 
+{
+    text-align: center;
+    margin-top: 0px;
+}
+path, .jtk-endpoint 
+{
+    cursor: pointer;
+}
+.rang 
+{
+    text-align: center;
+    color: white;
+
+}
+.rang-title 
+{
+    display: inline-block;
+    width: 200px;
+}
+.rang-number 
+{
+    width: 50%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+}
+#range 
+{
+    
+    width: 150px;
+}
+#table 
+{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td, #customers th 
+{
+ 
+  padding: 0;
+}
+#table tr:hover 
+{
+    background-color: #27D447;
+}
+
+#table th 
+{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: linen;
+  color: black;
+}
+.wrapper 
+{
+    width: 800px;
+    position: relative;
+    top: 100%;
+    left: 30%; 
+    display: inline-block; 
+}
+
+
+
+#div1 {
+  transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -webkit-transform:rotate(7deg);
+}
